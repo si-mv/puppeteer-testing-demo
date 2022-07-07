@@ -1,16 +1,12 @@
-describe('The add form', () => {
+describe('The add page', () => {
 
   jest.setTimeout(30 * 1000)
 
   beforeAll(async () => {
-    await page.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' })
+    await page.goto('http://localhost:3000', { waitUnitl: 'domcontentloaded' })
   })
 
-  test('two plus two is four', () => {
-    expect(2 + 2).toBe(4)
-  })
-
-  test('should have a title of "My App"', async () => {
+  test('the title should be "My App"', async () => {
     const title = await page.title()
     expect(title).toBe('My App')
   })
@@ -24,7 +20,7 @@ describe('The add form', () => {
     await page.type('#a', '2')
     await page.type('#b', '3')
     await page.click('#btn')
-    // should add a page.wait here (but i forgot the name of the puppeteer method!)
+    await page.waitForTimeout(2 * 1000) // wait for the api for 2 seconds
     const txt = await page.$eval('#ans', el => el.innerText)
     expect(txt).toBe('5')
   })
