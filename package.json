@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "jest": "^28.1.2",
+    "jest-puppeteer": "^6.1.1",
+    "live-server": "^1.2.2",
+    "nodemon": "^2.0.19",
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  },
+  "name": "puppeteer-testing-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev:api": "nodemon ./api/main.js",
+    "dev:app": "watchify ./app/main.js -o ./app/bundle.js & live-server ./app --port=3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "jest": {
+    "preset": "jest-puppeteer"
+  }
+}
